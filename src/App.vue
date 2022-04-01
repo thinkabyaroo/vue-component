@@ -1,26 +1,39 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-6">
+        <h1>App Vue</h1>
+        <Alert v-for="(message,index) in messages" :key="index" :message="messages">
+        </Alert>
+        <Alert message="Hello" color="alert-success" />
+        <Alert message="OHiYoo" color="alert-info" />
+        <Alert />
+
+
+      </div>
+    </div>
+
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Alert from "@/components/Alert";
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+  components: {Alert},
+  data() {
+    return {
+      messages: [
+          "hello",
+          "OHIYOO",
+          "Hi Hi",
+          "min ga lar"
+      ]
+    }
+  },
 }
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
 </style>
